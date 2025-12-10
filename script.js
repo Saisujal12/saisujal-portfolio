@@ -1,52 +1,46 @@
 const openContactBtn = document.getElementById("openContact");
-const contactBox = document.getElementById("contactme");
-const sendBtn = document.getElementById("sendBtn");
-const closeBtn = document.getElementById("btn-close");
-const overlay = document.getElementById("overlay");
+  const contactBox = document.getElementById("contactme");
+  const closeBtn = document.getElementById("btn-close");
+  const overlay = document.getElementById("overlay");
+  const contactForm = document.getElementById("contactForm");
 
-// OPEN popup
-openContactBtn.addEventListener("click", function (e) {
+  // OPEN popup
+  openContactBtn.addEventListener("click", function (e) {
     e.preventDefault();
-
     contactBox.style.display = "block";
     contactBox.classList.remove("animate-out");
     contactBox.classList.add("animate-in");
     overlay.style.display = "block";
-});
+  });
 
-// SEND button
-sendBtn.addEventListener("click", function () {
-    // Select all inputs and textarea inside the form
-    const inputs = contactBox.querySelectorAll("input, textarea");
+  // CLOSE button
+  closeBtn.addEventListener("click", closePopup);
 
-    if ([...inputs].some(i => i.value.trim() === "")) {
-        alert("❌ Please fill all fields");
-        return; // KEEP popup open
-    }
+  // OVERLAY CLICK
+  overlay.addEventListener("click", closePopup);
 
-    alert("✅ Message sent successfully!");
-    
-    // Clear all inputs and textarea
-    inputs.forEach(i => i.value = "");
-    closePopup();
-});
-
-// CLOSE button
-closeBtn.addEventListener("click", closePopup);
-
-// OVERLAY CLICK
-overlay.addEventListener("click", closePopup);
-
-// CLOSE FUNCTION
-function closePopup() {
+  // CLOSE FUNCTION
+  function closePopup() {
     contactBox.classList.remove("animate-in");
     contactBox.classList.add("animate-out");
-
     setTimeout(() => {
-        contactBox.style.display = "none";
-        overlay.style.display = "none";
-        contactBox.classList.remove("animate-out");
+      contactBox.style.display = "none";
+      overlay.style.display = "none";
+      contactBox.classList.remove("animate-out");
     }, 500);
-}
+  }
 
 
+  contactForm.addEventListener("submit", function(event) {
+   
+    const inputs = contactForm.querySelectorAll("input, textarea");
+    const empty = [...inputs].some(input => input.value.trim() === "");
+
+    if (empty) {
+      event.preventDefault(); 
+      alert("❌ Please fill all fields");
+      return;
+    }
+
+   
+  });
