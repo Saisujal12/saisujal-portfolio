@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Education Section</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: 
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),
+        url("https://img.freepik.com/free-vector/abstract-black-lines-geometric-background_677411-2748.jpg?semt=ais_hybrid&w=740&q=80")
+        no-repeat center center / cover;
+      color: #ffffff;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* NAVBAR (left-right layout always) */
+    .navbar {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      justify-content: space-between; /* left and right aligned */
+      align-items: center;
+      margin-bottom: 35px;
+    }
+
+    /* Education title */
+    .navbar h1 {
+      font-size: 42px;
+      letter-spacing: 2px;
+      animation: colorBlink 2s infinite ease-in-out;
+      white-space: nowrap;
+    }
+
+    /* Home Button */
+    .home-btn {
+      padding: 10px 20px;
+  
+      color: #4FC3F7;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: 0.3s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .home-btn:hover {
+      background: #4FC3F7;
+      color: #000;
+    }
+
+    @keyframes colorBlink {
+      0% {
+        color: #ffffff;
+      }
+      50% {
+        color: #4FC3F7;
+      }
+      100% {
+        color: #ffffff;
+      }
+    }
+
+    .education-section {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    th,
+    td {
+      border: 1px solid #ffffff;
+      padding: 15px 10px;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    thead {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    th:hover,
+    td:hover {
+      background: rgba(79, 195, 247, 0.4);
+      color: #000;
+      cursor: pointer;
+    }
+
+    /* MOBILE FIX — keep both on SAME LINE */
+    @media (max-width: 768px) {
+      .navbar h1 {
+        font-size: 28px;
+      }
+
+      .home-btn {
+        font-size: 16px;
+        padding: 7px 12px;
+        margin-left: 230px;
+      }
+    }
+
+
+    
+  </style>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+  <div class="education-section">
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <h1>
+        <i class="fa-solid fa-graduation-cap"></i> EDUCATION
+      </h1>
+
+      <a href="index.html" class="home-btn">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+    </div>
+    <br><br>
+
+    <!-- TABLE -->
+    <table>
+      <thead>
+        <tr>
+          <th><i class="fa-solid fa-graduation-cap"></i> DEGREE/CERTIFICATION</th>
+          <th><i class="fa-solid fa-building-columns"></i> INSTITUTION</th>
+          <th><i class="fa-solid fa-calendar-days"></i> YEAR</th>
+          <th><i class="fa-solid fa-percent"></i> PERCENTAGE/GRADE</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Bachelor of Technology (BTech) in Information Technology</td>
+          <td>KITSW University</td>
+          <td>2024–2028 (Expected)</td>
+          <td>Current CGPA: 8.5</td>
+        </tr>
+
+        <tr>
+          <td>Intermediate (12th Grade)</td>
+          <td>SR Junior College</td>
+          <td>2022–2024</td>
+          <td>88%</td>
+        </tr>
+
+        <tr>
+          <td>Secondary School Certificate (10th Grade)</td>
+          <td>Platinum Jubilee High School</td>
+          <td>2021–2022</td>
+          <td>87%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

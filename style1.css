@@ -1,0 +1,198 @@
+/* ------------------------------------------------ */
+/*                GLOBAL STYLES                     */
+/* ------------------------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #111;
+    color: white;
+}
+
+.project-section {
+    padding: 20px;
+}
+
+/* ------------------------------------------------ */
+/*                 TITLE FADE OPEN                  */
+/* ------------------------------------------------ */
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 30px;
+
+    opacity: 0;
+    animation: 
+    fadeOpen 1.5s ease forwards,
+    blink 1.5s ease infinite;
+}
+
+/* --------------------------------------- */ /* 
+         BLINKING ANIMATION KEYFRAMES 
+*/ /* --------------------------------------- */ 
+@keyframes blink 
+{ 
+    0% { color: #ffffff; opacity: 1; } 
+50% { color: #0a84ff; opacity: 0.4; } 
+100% 
+{ color: #8B5CF6; opacity: 1; } }
+
+@keyframes fadeOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes blink1
+{ 
+    0% { color: #ffffff; opacity: 1; } 
+
+100% 
+{ color: red; opacity: 1; } }
+.Note{
+    animation: 
+    fadeOpen 1.5s ease forwards,
+    blink1 0.5s ease infinite;
+
+}
+
+/* ------------------------------------------------ */
+/*             PROJECT CONTAINER DROPDOWN           */
+/* ------------------------------------------------ */
+
+.project-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: flex-start;
+
+    background: linear-gradient(to bottom right, #222, #111);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: dropDown 1s ease forwards;
+}
+
+/* Staggered animation */
+.project-container:nth-of-type(2) { animation-delay: 0.3s; }
+.project-container:nth-of-type(3) { animation-delay: 0.6s; }
+.project-container:nth-of-type(4) { animation-delay: 0.9s; }
+
+@keyframes dropDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------ */
+/*                  PROJECT TEXT                   */
+/* ------------------------------------------------ */
+
+.project-text {
+    flex: 1 1 350px;
+    text-align: left;
+}
+
+.project-text h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.project-text h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ccc;
+    animation: blink 1.5s ease infinite;
+}
+
+.project-text h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.project-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* ------------------------------------------------ */
+/*                  BUTTON                         */
+/* ------------------------------------------------ */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0a84ff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #006bd6;
+}
+
+/* ------------------------------------------------ */
+/*                   IMAGE                         */
+/* ------------------------------------------------ */
+
+.project-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.project-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* ------------------------------------------------ */
+/*              MOBILE RESPONSIVE                  */
+/* ------------------------------------------------ */
+
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 32px;
+    }
+
+    .project-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-image {
+        display: none;
+    }
+
+    .project-text h2 {
+        font-size: 26px;
+    }
+
+    .project-text h3 {
+        font-size: 18px;
+    }
+
+    .project-text p {
+        font-size: 15px;
+    }
+}
