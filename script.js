@@ -3,7 +3,6 @@ const contactBox = document.getElementById("contactme");
 const sendBtn = document.getElementById("sendBtn");
 const closeBtn = document.getElementById("btn-close");
 const overlay = document.getElementById("overlay");
-const body = document.body;
 
 // OPEN popup
 openContactBtn.addEventListener("click", function (e) {
@@ -13,20 +12,21 @@ openContactBtn.addEventListener("click", function (e) {
     contactBox.classList.remove("animate-out");
     contactBox.classList.add("animate-in");
     overlay.style.display = "block";
-    
 });
 
 // SEND button
 sendBtn.addEventListener("click", function () {
-    const inputs = contactBox.querySelectorAll("input");
+    // Select all inputs and textarea inside the form
+    const inputs = contactBox.querySelectorAll("input, textarea");
 
     if ([...inputs].some(i => i.value.trim() === "")) {
         alert("❌ Please fill all fields");
-        return; // ✅ KEEP popup open
+        return; // KEEP popup open
     }
 
     alert("✅ Message sent successfully!");
-
+    
+    // Clear all inputs and textarea
     inputs.forEach(i => i.value = "");
     closePopup();
 });
@@ -48,3 +48,5 @@ function closePopup() {
         contactBox.classList.remove("animate-out");
     }, 500);
 }
+
+
